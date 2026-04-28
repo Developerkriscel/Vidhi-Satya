@@ -4,6 +4,7 @@ This guide deploys the app as a Node.js service on a Hostinger VPS using:
 - PM2 (process manager)
 - Nginx (reverse proxy)
 - Certbot (HTTPS)
+- Squarespace-managed domain DNS
 
 ## 1. VPS prerequisites
 
@@ -48,7 +49,42 @@ Set production values in `.env`:
 - `ADMIN_EMAIL`
 - `ADMIN_PASSWORD`
 
-## 3. Install, build, seed, start
+## 3. Squarespace domain DNS setup
+
+In your Squarespace domain DNS panel, point your domain to the Hostinger VPS.
+
+Required records:
+- `A` record: host `@` -> your VPS public IPv4 address
+- `CNAME` record: host `www` -> `@` (or `your-domain.com`)
+
+Optional (if your VPS has IPv6):
+- `AAAA` record: host `@` -> your VPS public IPv6 address
+
+Important:
+- Remove conflicting old `A`/`AAAA`/`CNAME` records for `@` and `www`.
+- DNS changes typically propagate in a few minutes, but can take up to 24 hours.
+
+## 4. First-time setup (recommended one command)
+
+Use the setup script included in this repo:
+
+```bash
+chmod +x scripts/setup-hostinger-vps.sh
+APP_DIR=/var/www/vidhi-satya APP_NAME=vidhi-satya DOMAIN=your-domain.com WWW_DOMAIN=www.your-domain.com ./scripts/setup-hostinger-vps.sh
+```
+
+This script:
+- installs Nginx, Node.js 20, PM2, Certbot, and UFW rules
+- builds the app and starts/reloads PM2
+- installs Nginx site config from `nginx/vidhi-satya.conf`
+
+If you want initial database seeding during setup:
+
+```bash
+RUN_SEED=true APP_DIR=/var/www/vidhi-satya APP_NAME=vidhi-satya DOMAIN=your-domain.com WWW_DOMAIN=www.your-domain.com ./scripts/setup-hostinger-vps.sh
+```
+
+## 5. Manual setup (alternative)
 
 ```bash
 npm ci
@@ -62,7 +98,7 @@ pm2 startup systemd
 
 Run the command printed by `pm2 startup systemd` to enable restart on reboot.
 
-## 4. Configure Nginx
+## 6. Configure Nginx (manual path)
 
 Copy the included config and replace domain names:
 
@@ -79,7 +115,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## 5. Enable HTTPS
+## 7. Enable HTTPS
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
@@ -92,7 +128,7 @@ Verify auto-renew:
 sudo systemctl status certbot.timer
 ```
 
-## 6. Firewall setup
+## 8. Firewall setup
 
 ```bash
 sudo ufw allow OpenSSH
@@ -101,7 +137,7 @@ sudo ufw enable
 sudo ufw status
 ```
 
-## 7. Verify deployment
+## 9. Verify deployment
 
 Check app and reverse proxy:
 
@@ -114,7 +150,7 @@ curl -I https://your-domain.com/api/health
 
 Expected health response: HTTP 200 with JSON status `ok`.
 
-## 8. Future updates
+## 10. Future updates
 
 Use the included deploy script:
 
@@ -123,7 +159,15 @@ chmod +x scripts/deploy-hostinger.sh
 APP_DIR=/var/www/vidhi-satya BRANCH=main APP_NAME=vidhi-satya ./scripts/deploy-hostinger.sh
 ```
 
+The update script does:
+- `git pull --ff-only`
+- `npm ci`
+- `npm run prepare:uploads`
+- `npm run build`
+- `pm2 reload`
+
 ## Notes
 
 - Uploads are stored in `public/uploads`. Keep this directory persistent across deployments.
 - If you plan to scale across multiple servers, move uploads to object storage (Cloudinary/S3-compatible).
+- Keep `.env` only on the VPS; do not commit secrets to git.

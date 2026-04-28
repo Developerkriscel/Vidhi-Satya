@@ -244,6 +244,7 @@ Before going live:
 
 For a full Hostinger VPS setup (PM2 + Nginx + HTTPS), use:
 - `docs/HOSTINGER_VPS_DEPLOYMENT.md`
+- includes Squarespace domain DNS mapping steps (`A` for `@`, `CNAME` for `www`)
 
 ## Troubleshooting
 
