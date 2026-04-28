@@ -173,8 +173,10 @@ Open:
 npm run dev     # Start local development server
 npm run build   # Production build
 npm run start   # Start production server after build
+npm run start:hostinger  # Production server bind for VPS reverse proxy
 npm run lint    # Lint codebase
 npm run seed    # Seed DB with starter content
+npm run prepare:uploads  # Ensure public/uploads exists
 ```
 
 ## Admin CMS
@@ -225,16 +227,23 @@ Uploads are currently stored under local filesystem:
 
 `src/lib/upload.ts` contains a Cloudinary hook point, but current implementation uses local upload fallback so the app works without external media setup.
 
+Run `npm run prepare:uploads` during deployment to ensure upload directory creation.
+
 If deploying to ephemeral/serverless environments, move uploads to persistent object storage (for example Cloudinary, S3, or equivalent).
 
 ## Deployment Notes
 
 Before going live:
 1. Set all production env vars (`MONGODB_URI`, `JWT_SECRET`, `NEXT_PUBLIC_SITE_URL`, etc.)
-2. Run `npm run build` and ensure success
-3. Seed production database if needed (`npm run seed`) using secure admin credentials
-4. Confirm `robots.txt` and `sitemap.xml` resolve on production domain
-5. Validate admin login and content CRUD flows
+2. Run `npm run prepare:uploads`
+3. Run `npm run build` and ensure success
+4. Verify health endpoint on server (`/api/health`)
+5. Seed production database if needed (`npm run seed`) using secure admin credentials
+6. Confirm `robots.txt` and `sitemap.xml` resolve on production domain
+7. Validate admin login and content CRUD flows
+
+For a full Hostinger VPS setup (PM2 + Nginx + HTTPS), use:
+- `docs/HOSTINGER_VPS_DEPLOYMENT.md`
 
 ## Troubleshooting
 
