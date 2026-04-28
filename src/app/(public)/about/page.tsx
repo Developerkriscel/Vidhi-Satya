@@ -108,15 +108,22 @@ export default async function AboutPage() {
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Partners</p>
-                    <p className="mt-1 text-sm text-foreground/90">Kriscel, Linkhr, BPragati (as referenced).</p>
+                    <p className="mt-1 text-sm text-foreground/90">Kriscel Tech Pvt. Ltd. (Online Services)</p>
+                    <p className="mt-1 text-sm text-foreground/90">LinkHR Solution Pvt. Ltd. ( Rendering HR solution india wide) , Delhi and Odisha, India </p>
+                    <p className="mt-1 text-sm text-foreground/90">BBPragati Training Services Pvt. Ltd. ( business networking and training) , Delhi, India </p>
+                    <p className="mt-1 text-sm text-foreground/90">Krishna Overseas Inc. ( a two star export house) , Dwarka, Delhi and Mumbai. India </p>
+                    <p className="mt-1 text-sm text-foreground/90">Seabees Global Logistics Pvt. Ltd. ( for logistics) </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Legal Partner</p>
-                    <p className="mt-1 text-sm text-foreground/90">EDLO, Arunodaya Legal.</p>
+                    <p className="mt-1 text-sm text-foreground/90">East Delhi Law Office (Law Firm) Delhi, India </p>
+                    <p className="mt-1 text-sm text-foreground/90">Arunodaya Legal Consultants ( Law Firm), Delhi, India </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Support</p>
-                    <p className="mt-1 text-sm text-foreground/90">Helping Hands / Capsi. Additional details can be updated later.</p>
+                    <p className="mt-1 text-sm text-foreground/90">Helping Hands (NGO) , New Delhi and in all NE states. India </p>
+                    <p className="mt-1 text-sm text-foreground/90">Central Association of Private Security Industry ( CAPSI) , India. </p>
+                    <p className="mt-1 text-sm text-foreground/90">Within ( Bespoke Interiors) , Ghitorni Delhi, India </p>
                   </div>
                 </div>
               </CardContent>
