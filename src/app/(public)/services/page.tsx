@@ -7,6 +7,7 @@ import { resolveServiceImage } from "@/lib/service-image";
 import { CTASection } from "@/components/common/cta-section";
 import { StructuredData } from "@/components/common/structured-data";
 import { SectionTitle } from "@/components/common/section-title";
+import { MotionReveal } from "@/components/common/motion-reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -122,12 +123,24 @@ export default async function ServicesPage() {
               <CardContent className="p-6">
                 <h3 className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold sm:text-3xl">Operating Model (SPOC Framework)</h3>
                 <div className="mt-5 space-y-3">
-                  {operatingModel.map(([label, detail]) => (
-                    <div key={label} className="rounded-[0.75rem] bg-surface-low p-4 ring-1 ring-outline-variant/15">
-                      <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
-                      <p className="mt-1 text-sm text-foreground/90">{detail}</p>
-                    </div>
-                  ))}
+                  {operatingModel.map(([label, detail], index) => {
+                    const isModeOfWorking = label === "Mode of Working";
+
+                    return (
+                      <MotionReveal key={label} delay={0.04 * index}>
+                        <div
+                          className={`rounded-[0.75rem] p-4 ring-1 transition-all duration-300 ${
+                            isModeOfWorking
+                              ? "bg-primary/10 ring-primary/35 hover:-translate-y-1 hover:shadow-soft hover:bg-primary/15"
+                              : "bg-surface-low ring-outline-variant/15 hover:-translate-y-1 hover:shadow-soft hover:bg-surface"
+                          }`}
+                        >
+                          <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
+                          <p className="mt-1 text-sm text-foreground/90">{detail}</p>
+                        </div>
+                      </MotionReveal>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>

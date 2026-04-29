@@ -265,7 +265,9 @@ export default async function BlogPage({ searchParams }: Props) {
                               <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                             </span>
                           </div>
-                          <div className={`min-w-0 rounded-2xl border border-outline-variant/35 p-[3px] shadow-sm ${flowRibbonStyles[idx]}`}>
+                          <div
+                            className={`min-w-0 rounded-2xl border border-outline-variant/35 p-[3px] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${flowRibbonStyles[idx]}`}
+                          >
                             <div className="rounded-[0.95rem] px-4 py-3 text-foreground">
                               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step {step.id}</p>
                               <p className="mt-1 break-words text-xs leading-5 text-muted-foreground">{step.text}</p>
@@ -299,7 +301,7 @@ export default async function BlogPage({ searchParams }: Props) {
                         />
                         <div className={`flex ${alignedRight ? "justify-end" : "justify-start"}`}>
                           <div
-                            className={`relative w-[28rem] rounded-2xl border border-outline-variant/35 p-[3px] shadow-sm ${flowRibbonStyles[idx]} ${
+                            className={`relative w-[28rem] rounded-2xl border border-outline-variant/35 p-[3px] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${flowRibbonStyles[idx]} ${
                               alignedRight ? "pr-12" : "pl-12"
                             }`}
                           >
