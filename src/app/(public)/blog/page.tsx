@@ -1,5 +1,15 @@
 import Image from "next/image";
-import { ArrowDown, ArrowDownLeft, ArrowDownRight } from "lucide-react";
+import {
+  BarChart3,
+  CheckCircle2,
+  ClipboardCheck,
+  FileText,
+  HandCoins,
+  Lightbulb,
+  type LucideIcon,
+  MessagesSquare,
+  RefreshCw
+} from "lucide-react";
 
 import { buildPageMetadata } from "@/lib/seo";
 import { getPublicBlogsData } from "@/lib/public-cache";
@@ -63,9 +73,36 @@ export default async function BlogPage({ searchParams }: Props) {
       text: "Work is usually completed in time frame set or revised per force majeure. Once work is done, the record of working are kept or disposed off ethically as per our process."
     }
   ];
-  const desktopAlignment = ["justify-center", "justify-end", "justify-center", "justify-start", "justify-center", "justify-end", "justify-center", "justify-start"];
-  const desktopArrowIcons = [ArrowDownRight, ArrowDownLeft, ArrowDownLeft, ArrowDownRight, ArrowDownRight, ArrowDownLeft, ArrowDownLeft];
-  const desktopArrowAlignment = ["justify-end", "justify-center", "justify-start", "justify-start", "justify-end", "justify-center", "justify-start"];
+  const flowRibbonStyles = [
+    "bg-surface",
+    "bg-surface-low",
+    "bg-surface",
+    "bg-surface-low",
+    "bg-surface",
+    "bg-surface-low",
+    "bg-surface",
+    "bg-surface-low"
+  ];
+  const flowRibbonIconColors = [
+    "text-accent",
+    "text-accent",
+    "text-accent",
+    "text-accent",
+    "text-accent",
+    "text-accent",
+    "text-accent",
+    "text-accent"
+  ];
+  const flowRibbonIcons: LucideIcon[] = [
+    ClipboardCheck,
+    FileText,
+    Lightbulb,
+    HandCoins,
+    BarChart3,
+    MessagesSquare,
+    RefreshCw,
+    CheckCircle2
+  ];
   const blogCollectionSchema = buildWebPageJsonLd({
     pathname: "/blog",
     type: "CollectionPage",
@@ -213,41 +250,72 @@ export default async function BlogPage({ searchParams }: Props) {
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Mode of Working</p>
               <p className="mt-1 font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Working Flow Chart</p>
               <div className="mt-4 lg:hidden">
-                <div className="space-y-2">
-                  {workingFlowSteps.map((step, idx) => (
-                    <div key={step.id}>
-                      <div className="rounded-[0.85rem] border border-outline-variant/35 bg-surface p-3 text-foreground shadow-sm">
-                        <p className="text-sm font-semibold text-accent">Step {step.id}</p>
-                        <p className="mt-1 text-xs leading-5 text-muted-foreground">{step.text}</p>
-                      </div>
-                      {idx < workingFlowSteps.length - 1 ? (
-                        <div className="my-1 flex justify-center text-accent">
-                          <ArrowDown className="h-4 w-4" aria-hidden="true" />
+                <div className="relative">
+                  <div className="absolute bottom-2 left-[0.875rem] top-2 w-px bg-outline-variant/35" aria-hidden="true" />
+                  <div className="space-y-3">
+                    {workingFlowSteps.map((step, idx) => {
+                      const Icon = flowRibbonIcons[idx];
+
+                      return (
+                        <div key={step.id} className="grid grid-cols-[1.75rem_minmax(0,1fr)] items-start gap-3">
+                          <div className="flex justify-center pt-3">
+                            <span
+                              className={`inline-flex h-7 w-7 items-center justify-center rounded-full border border-outline-variant/35 bg-background shadow-sm ${flowRibbonIconColors[idx]}`}
+                            >
+                              <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                            </span>
+                          </div>
+                          <div className={`min-w-0 rounded-2xl border border-outline-variant/35 p-[3px] shadow-sm ${flowRibbonStyles[idx]}`}>
+                            <div className="rounded-[0.95rem] px-4 py-3 text-foreground">
+                              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step {step.id}</p>
+                              <p className="mt-1 break-words text-xs leading-5 text-muted-foreground">{step.text}</p>
+                            </div>
+                          </div>
                         </div>
-                      ) : null}
-                    </div>
-                  ))}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
               <div className="mt-4 hidden lg:block">
-                <div className="space-y-1">
+                <div className="relative mx-auto max-w-[64rem] space-y-2">
+                  <div className="absolute bottom-0 left-1/2 top-0 w-px -translate-x-1/2 bg-outline-variant/35" aria-hidden="true" />
                   {workingFlowSteps.map((step, idx) => {
-                    const ArrowIcon = idx < workingFlowSteps.length - 1 ? desktopArrowIcons[idx] : null;
+                    const Icon = flowRibbonIcons[idx];
+                    const alignedRight = idx % 2 === 0;
 
                     return (
-                      <div key={step.id}>
-                        <div className={`flex ${desktopAlignment[idx]}`}>
-                          <div className="w-[20rem] rounded-[0.85rem] border border-outline-variant/35 bg-surface p-3 text-foreground shadow-sm">
-                            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step {step.id}</p>
-                            <p className="mt-1 text-xs leading-5 text-muted-foreground">{step.text}</p>
+                      <div key={step.id} className="relative">
+                        <div
+                          className={`pointer-events-none absolute top-1/2 h-px -translate-y-1/2 bg-outline-variant/35 ${
+                            alignedRight ? "left-1/2 w-[calc(50%-14rem)]" : "right-1/2 w-[calc(50%-14rem)]"
+                          }`}
+                          aria-hidden="true"
+                        />
+                        <span
+                          className="pointer-events-none absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/70"
+                          aria-hidden="true"
+                        />
+                        <div className={`flex ${alignedRight ? "justify-end" : "justify-start"}`}>
+                          <div
+                            className={`relative w-[28rem] rounded-2xl border border-outline-variant/35 p-[3px] shadow-sm ${flowRibbonStyles[idx]} ${
+                              alignedRight ? "pr-12" : "pl-12"
+                            }`}
+                          >
+                            <div className="rounded-[0.95rem] px-5 py-3 text-foreground">
+                              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step {step.id}</p>
+                              <p className="mt-1 text-xs leading-5 text-muted-foreground">{step.text}</p>
+                            </div>
+                            <div
+                              className={`absolute top-1/2 -translate-y-1/2 ${
+                                alignedRight ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"
+                              } inline-flex h-12 w-12 items-center justify-center rounded-full border border-outline-variant/35 bg-background shadow-md`}
+                            >
+                              <Icon className={`h-5 w-5 ${flowRibbonIconColors[idx]}`} aria-hidden="true" />
+                            </div>
                           </div>
                         </div>
-                        {ArrowIcon ? (
-                          <div className={`my-0.5 flex ${desktopArrowAlignment[idx]} px-8 text-accent`}>
-                            <ArrowIcon className="h-5 w-5" aria-hidden="true" />
-                          </div>
-                        ) : null}
                       </div>
                     );
                   })}
