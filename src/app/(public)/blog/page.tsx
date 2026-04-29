@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowDown, ArrowDownLeft, ArrowDownRight } from "lucide-react";
 
 import { buildPageMetadata } from "@/lib/seo";
 import { getPublicBlogsData } from "@/lib/public-cache";
@@ -28,10 +29,47 @@ export default async function BlogPage({ searchParams }: Props) {
   const blogs = (await getPublicBlogsData(search, tag)) as BlogItem[];
   const featured = blogs[0];
   const topTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags))).slice(0, 8);
+  const workingFlowSteps = [
+    {
+      id: 1,
+      text: "Request Form is Received by us"
+    },
+    {
+      id: 2,
+      text: "It is checked and introductory email and a detail seeking google form is sent"
+    },
+    {
+      id: 3,
+      text: "Once response to introductory email and filled google form received, the team vidhisatya.com sets in motion and task force is formed to do needful as desired by the client; and fee and expenses commensurate work are approximated and shared with client"
+    },
+    {
+      id: 4,
+      text: "Advances towards fee and expenses are requested and on receipt of the same, the desired work is begun within time frame intimated."
+    },
+    {
+      id: 5,
+      text: "Day to Day working is defined and progress is shared in confidence with clients or their representative online (our intranet or email and whatsapp). Record of all working is fairly kept, subject to force majeure."
+    },
+    {
+      id: 6,
+      text: "Clients are time to time updated on information and documentation and protocol requirements. Online and Offline needful meeting are held."
+    },
+    {
+      id: 7,
+      text: "In case there is amendment in scope of work or any exigency, our team learns, adapts and changes course of action as per revised instructions of the clients, to the extent possible."
+    },
+    {
+      id: 8,
+      text: "Work is usually completed in time frame set or revised per force majeure. Once work is done, the record of working are kept or disposed off ethically as per our process."
+    }
+  ];
+  const desktopAlignment = ["justify-center", "justify-end", "justify-center", "justify-start", "justify-center", "justify-end", "justify-center", "justify-start"];
+  const desktopArrowIcons = [ArrowDownRight, ArrowDownLeft, ArrowDownLeft, ArrowDownRight, ArrowDownRight, ArrowDownLeft, ArrowDownLeft];
+  const desktopArrowAlignment = ["justify-end", "justify-center", "justify-start", "justify-start", "justify-end", "justify-center", "justify-start"];
   const blogCollectionSchema = buildWebPageJsonLd({
     pathname: "/blog",
     type: "CollectionPage",
-    title: "Insights & Articles",
+    title: "Insights",
     description: "Practical perspectives on governance, strategy, and execution.",
     imageUrl: featured ? resolveBlogImage(featured) : "/uploads/blog-designing-public-programs.jpeg"
   });
@@ -47,7 +85,7 @@ export default async function BlogPage({ searchParams }: Props) {
       <section className="section-padding">
         <div className="container">
           <SectionTitle
-            title="Insights & Articles"
+            title="Insights"
             description="Practical perspectives on governance, strategy, and execution."
             className="max-w-3xl"
           />
@@ -170,6 +208,53 @@ export default async function BlogPage({ searchParams }: Props) {
               </CardContent>
             </Card>
           </div>
+          <Card className="mb-10">
+            <CardContent className="p-4 sm:p-5">
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Mode of Working</p>
+              <p className="mt-1 font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Working Flow Chart</p>
+              <div className="mt-4 lg:hidden">
+                <div className="space-y-2">
+                  {workingFlowSteps.map((step, idx) => (
+                    <div key={step.id}>
+                      <div className="rounded-[0.85rem] border border-outline-variant/35 bg-surface p-3 text-foreground shadow-sm">
+                        <p className="text-sm font-semibold text-accent">Step {step.id}</p>
+                        <p className="mt-1 text-xs leading-5 text-muted-foreground">{step.text}</p>
+                      </div>
+                      {idx < workingFlowSteps.length - 1 ? (
+                        <div className="my-1 flex justify-center text-accent">
+                          <ArrowDown className="h-4 w-4" aria-hidden="true" />
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-4 hidden lg:block">
+                <div className="space-y-1">
+                  {workingFlowSteps.map((step, idx) => {
+                    const ArrowIcon = idx < workingFlowSteps.length - 1 ? desktopArrowIcons[idx] : null;
+
+                    return (
+                      <div key={step.id}>
+                        <div className={`flex ${desktopAlignment[idx]}`}>
+                          <div className="w-[20rem] rounded-[0.85rem] border border-outline-variant/35 bg-surface p-3 text-foreground shadow-sm">
+                            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">Step {step.id}</p>
+                            <p className="mt-1 text-xs leading-5 text-muted-foreground">{step.text}</p>
+                          </div>
+                        </div>
+                        {ArrowIcon ? (
+                          <div className={`my-0.5 flex ${desktopArrowAlignment[idx]} px-8 text-accent`}>
+                            <ArrowIcon className="h-5 w-5" aria-hidden="true" />
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
       <CTASection title="Need Context for a Critical Decision?" description="Speak with our advisors for a focused strategy conversation." />

@@ -124,6 +124,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/book-consultation`,
       lastModified: toDate(siteSettings?.updatedAt) || new Date(),
       images: uniqueAbsoluteUrls(siteUrl, [siteSettings?.logoUrl])
+    },
+    {
+      url: `${siteUrl}/refund-policy`,
+      lastModified: toDate(siteSettings?.updatedAt) || new Date(),
+      images: uniqueAbsoluteUrls(siteUrl, [siteSettings?.logoUrl])
+    },
+    {
+      url: `${siteUrl}/privacy-policy`,
+      lastModified: toDate(siteSettings?.updatedAt) || new Date(),
+      images: uniqueAbsoluteUrls(siteUrl, [siteSettings?.logoUrl])
     }
   ];
 

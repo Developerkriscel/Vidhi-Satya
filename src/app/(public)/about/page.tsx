@@ -107,23 +107,43 @@ export default async function AboutPage() {
                     <p className="mt-1 text-sm text-foreground/90">Awards, recognition, and appreciation letters (where applicable).</p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
-                    <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Partners</p>
-                    <p className="mt-1 text-sm text-foreground/90">Kriscel Tech Pvt. Ltd. (Online Services)</p>
-                    <p className="mt-1 text-sm text-foreground/90">LinkHR Solution Pvt. Ltd. ( Rendering HR solution india wide) , Delhi and Odisha, India </p>
-                    <p className="mt-1 text-sm text-foreground/90">BBPragati Training Services Pvt. Ltd. ( business networking and training) , Delhi, India </p>
-                    <p className="mt-1 text-sm text-foreground/90">Krishna Overseas Inc. ( a two star export house) , Dwarka, Delhi and Mumbai. India </p>
-                    <p className="mt-1 text-sm text-foreground/90">Seabees Global Logistics Pvt. Ltd. ( for logistics) </p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Preferred Partners</p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Kriscel Tech Pvt. Ltd.</span> (Online Services)
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Link HR Solution Pvt. Ltd.</span> (Rendering HR solution india wide) , Delhi and Odisha, India
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Pragati Training Services Pvt. Ltd.</span> (business networking and training) , Delhi, India
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Krishna Overseas Inc.</span> (a two star export house) , Dwarka, Delhi and Mumbai. India
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Seabees Global Logistics Pvt. Ltd.</span> (for logistics)
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Within (Bespoke Interiors)</span>  , Ghitorni Delhi, India
+                    </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Legal Partner</p>
-                    <p className="mt-1 text-sm text-foreground/90">East Delhi Law Office (Law Firm) Delhi, India </p>
-                    <p className="mt-1 text-sm text-foreground/90">Arunodaya Legal Consultants ( Law Firm), Delhi, India </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">East Delhi Law Office</span> (Law Firm) Delhi, India
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Arunodaya Legal Consultants</span> (Law Firm), Delhi, India
+                    </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Support</p>
-                    <p className="mt-1 text-sm text-foreground/90">Helping Hands (NGO) , New Delhi and in all NE states. India </p>
-                    <p className="mt-1 text-sm text-foreground/90">Central Association of Private Security Industry ( CAPSI) , India. </p>
-                    <p className="mt-1 text-sm text-foreground/90">Within ( Bespoke Interiors) , Ghitorni Delhi, India </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Helping Hands</span> (NGO) , New Delhi and in all NE states. India
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/90">
+                      <span className="font-semibold">Central Association of Private Security Industry</span> (CAPSI) , India.
+                    </p>
                   </div>
                 </div>
               </CardContent>

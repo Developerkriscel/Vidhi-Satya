@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { VisitorCounter } from "@/components/common/visitor-counter";
 import { sanitizeCompanyName } from "@/lib/brand-text";
@@ -94,10 +95,13 @@ export function Footer({
         </div>
       </div>
 
-      <div className="container flex flex-col gap-3 py-5 text-xs text-[#CFFFDC]/72 md:flex-row md:items-center md:justify-between">
-        <div className="space-y-1">
+      <div className="container flex flex-col gap-3 py-5 text-xs text-[#CFFFDC]/72 md:flex-row md:justify-between">
+        <div className="space-y-2">
+          <div className="relative h-16 w-40 overflow-hidden p-1">
+            <Image src="/brand/edlo-logo-cropped.png" alt="East Delhi Law Office logo" fill sizes="160px" className="object-contain" />
+          </div>
           <p>
-            &copy;2026 - vidhisatya.com proprietory of East Delhi Law Office ( a law firm). All Rights Reserved. Design &amp; Developed By{" "}
+            &copy;2026 - vidhisatya.com proprietary of East Delhi Law Office ( a law firm). All Rights Reserved. Design &amp; Developed By{" "}
             <a
               href="https://kriscel.com/"
               target="_blank"
@@ -109,15 +113,12 @@ export function Footer({
           </p>
           <p className="text-[11px] text-[#CFFFDC]/60">All images displayed on this website are AI-generated.</p>
         </div>
-        <div className="flex flex-wrap gap-4">
-          <Link href="/services" className="hover:text-white">
-            Mandates
+        <div className="flex flex-wrap gap-4 pr-16 sm:pr-20 md:pt-[4.5rem] md:pr-24 lg:pr-28">
+          <Link href="/refund-policy" className="hover:text-white">
+            Refund Policy
           </Link>
-          <Link href="/blog" className="hover:text-white">
-            Publications
-          </Link>
-          <Link href="/contact" className="hover:text-white">
-            Policy Enquiries
+          <Link href="/privacy-policy" className="hover:text-white">
+            Privacy Policy
           </Link>
         </div>
       </div>

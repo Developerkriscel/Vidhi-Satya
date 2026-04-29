@@ -18,7 +18,7 @@ type BlogPreviewProps = {
 };
 
 export function BlogPreview({ blogs }: BlogPreviewProps) {
-  const additionalFocusTags = ["Project management", "Audit", "Compliances", "Growth", "Sustainability", "wellfare"];
+  const additionalFocusTags = ["Project management", "Audit", "Compliances", "Growth", "Sustainability", "welfare"];
   const orderedBlogs = [...blogs].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
   const uniqueTags = Array.from(new Set([...orderedBlogs.flatMap((blog) => blog.tags), ...additionalFocusTags]));
 
