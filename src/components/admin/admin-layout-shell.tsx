@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState, type ReactNode } from "react";
 
 import { AdminSidebar } from "@/components/admin/admin-sidebar";
 import { cn } from "@/lib/utils";
@@ -18,10 +18,66 @@ const mobileLinks = [
 
 export function AdminLayoutShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const isLogin = pathname === "/admin/login";
+  const [isChecking, setIsChecking] = useState(!isLogin);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function checkAuth() {
+      if (isLogin) {
+        setIsChecking(false);
+        return;
+      }
+
+      setIsChecking(true);
+
+      try {
+        const res = await fetch("/api/auth/me", {
+          method: "GET",
+          credentials: "include",
+          cache: "no-store"
+        });
+
+        if (!mounted) return;
+
+        if (!res.ok) {
+          setIsAuthenticated(false);
+          router.replace("/admin/login");
+          return;
+        }
+
+        setIsAuthenticated(true);
+      } catch {
+        if (!mounted) return;
+        setIsAuthenticated(false);
+        router.replace("/admin/login");
+      } finally {
+        if (mounted) {
+          setIsChecking(false);
+        }
+      }
+    }
+
+    checkAuth();
+
+    return () => {
+      mounted = false;
+    };
+  }, [isLogin, router, pathname]);
 
   if (isLogin) {
     return <div className="min-h-screen">{children}</div>;
+  }
+
+  if (isChecking || !isAuthenticated) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <p className="text-sm text-muted-foreground">Checking admin access...</p>
+      </div>
+    );
   }
 
   return (
