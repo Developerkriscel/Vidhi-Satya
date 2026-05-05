@@ -2,24 +2,59 @@
 
 import { useEffect, useState } from "react";
 
-const START_COUNT = 19031;
-const UPDATE_INTERVAL_MS = 5000;
-const MIN_STEP = 1;
-const MAX_STEP = 4;
+const VISITOR_MARK_KEY = "vidhisatya_visitor_mark_date";
 
-function getRandomStep() {
-  return Math.floor(Math.random() * (MAX_STEP - MIN_STEP + 1)) + MIN_STEP;
-}
+type VisitorResponse = {
+  success?: boolean;
+  data?: {
+    count?: number;
+  };
+};
 
 export function VisitorCounter() {
-  const [count, setCount] = useState<number>(START_COUNT);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setCount((current) => current + getRandomStep());
-    }, UPDATE_INTERVAL_MS);
+    let active = true;
 
-    return () => window.clearInterval(timer);
+    const getTodayMark = () => new Date().toISOString().slice(0, 10);
+
+    const fetchCount = async (method: "GET" | "POST") => {
+      const response = await fetch("/api/visitor-count", {
+        method,
+        cache: "no-store"
+      });
+      const payload = (await response.json()) as VisitorResponse;
+      return payload?.data?.count ?? 0;
+    };
+
+    const syncVisitorCount = async () => {
+      try {
+        const todayMark = getTodayMark();
+        const savedMark = window.localStorage.getItem(VISITOR_MARK_KEY);
+
+        if (savedMark !== todayMark) {
+          const updated = await fetchCount("POST");
+          if (!active) return;
+          setCount(updated);
+          window.localStorage.setItem(VISITOR_MARK_KEY, todayMark);
+          return;
+        }
+
+        const current = await fetchCount("GET");
+        if (!active) return;
+        setCount(current);
+      } catch {
+        if (!active) return;
+        setCount(0);
+      }
+    };
+
+    void syncVisitorCount();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (

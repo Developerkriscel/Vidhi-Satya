@@ -103,6 +103,12 @@ export default async function BlogPage({ searchParams }: Props) {
     RefreshCw,
     CheckCircle2
   ];
+  const dedicationQuoteLines = [
+    "It's urged to do good, then do it first opportunity you find good.",
+    "It's urged to be worth, then do it moment you find worth.",
+    "It's urged to be great, then do it wisely as do all great. 👏",
+    "It's urged to be timely, then do it with accuracy, precision, merit but timely. 🙌"
+  ];
   const blogCollectionSchema = buildWebPageJsonLd({
     pathname: "/blog",
     type: "CollectionPage",
@@ -245,6 +251,26 @@ export default async function BlogPage({ searchParams }: Props) {
               </CardContent>
             </Card>
           </div>
+          <Card className="mb-10">
+            <CardContent className="p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Insights Quote</p>
+              <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold">Dedication</p>
+              <div className="mt-5 grid gap-3">
+                {dedicationQuoteLines.map((line) => (
+                  <Card key={line} className="border-accent/30 bg-surface-low">
+                    <CardContent className="p-4 sm:p-5">
+                      <p className="border-l-4 border-accent/60 pl-3 italic text-sm leading-7 text-muted-foreground sm:text-base">
+                        {line}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+                <p className="pt-1 text-sm text-foreground sm:text-base">
+                  -By urs <span className="font-semibold">Rajesh Narang</span>, 29/04/2026 India
+                </p>
+              </div>
+            </CardContent>
+          </Card>
           <Card className="mb-10">
             <CardContent className="p-4 sm:p-5">
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Mode of Working</p>

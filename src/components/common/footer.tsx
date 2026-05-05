@@ -12,7 +12,6 @@ type FooterProps = {
 };
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/east-delhi-law-office/";
-const FACEBOOK_URL = "https://www.facebook.com/rnarang.del";
 
 
 export function Footer({
@@ -73,9 +72,6 @@ export function Footer({
           <div className="mt-4 flex gap-4 text-sm">
             <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="text-[#CFFFDC]/88 hover:text-white">
               LinkedIn
-            </a>
-            <a href={FACEBOOK_URL} target="_blank" rel="noreferrer" className="text-[#CFFFDC]/88 hover:text-white">
-              Facebook
             </a>
           </div>
         </div>
