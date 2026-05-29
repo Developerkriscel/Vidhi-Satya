@@ -36,7 +36,7 @@ export default function RefundPolicyPage() {
                 <li>The fee and expenses are kept adequate &amp; commensurate bespoke and customized work undertaken.</li>
                 <li>There is no work result based fee charged, unless for specific purpose. The refund of fee is thus infructuous and not possible at our end.</li>
                 <li>We advise the client to wisely make choice and assign work with full details and upon clear understanding of the time and costing involved and not get carried away with any assumptions.</li>
-                <li>However, we do pro bono work too to support society causes, so in said case no refund exit.</li>
+                <li>However, we do pro bono work too to support society causes, so in said case no refund exist.</li>
               </ul>
             </CardContent>
           </Card>
