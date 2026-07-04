@@ -93,11 +93,11 @@ export function Footer({
 
       <div className="container flex flex-col gap-3 py-5 text-xs text-[#CFFFDC]/72 md:flex-row md:justify-between">
         <div className="space-y-2">
-          <div className="relative h-16 w-40 overflow-hidden p-1">
+          {/* <div className="relative h-16 w-40 overflow-hidden p-1">
             <Image src="/brand/edlo-logo-cropped.png" alt="East Delhi Law Office logo" fill sizes="160px" className="object-contain" />
-          </div>
+          </div> */}
           <p>
-            &copy;2026 - vidhisatya.com proprietary of East Delhi Law Office ( a law firm). All Rights Reserved. Design &amp; Developed By{" "}
+            &copy;2026 - All rights of vidhisatya.com reserved with Sh.Rajesh Narang. Design &amp; Developed By{" "}
             <a
               href="https://kriscel.com/"
               target="_blank"
