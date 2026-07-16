@@ -109,40 +109,104 @@ export default async function AboutPage() {
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Preferred Partners</p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Kriscel Tech Pvt. Ltd.</span> (Online Services)
+                      <a
+                        href="https://kriscel.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Kriscel Tech Pvt. Ltd.
+                      </a>{" "}
+                      (Online Services)
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Link HR Solution Pvt. Ltd.</span> (Rendering HR solution india wide) , Delhi and Odisha, India
+                      <a
+                        href="https://www.linkhrsolution.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Link HR Solution Pvt. Ltd.
+                      </a>{" "}
+                      (Rendering HR solution india wide) , Delhi and Odisha, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <span className="font-semibold">Pragati Training Services Pvt. Ltd.</span> (business networking and training) , Delhi, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Krishna Overseas Inc.</span> (a two star export house) , Dwarka, Delhi and Mumbai. India
+                      <a
+                        href="https://www.koiindia.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Krishna Overseas Inc.
+                      </a>{" "}
+                      (a two star export house) , Dwarka, Delhi and Mumbai. India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Seabees Global Logistics Pvt. Ltd.</span> (for logistics)
+                      <a
+                        href="https://seabeesglobal.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Seabees Global Logistics Pvt. Ltd.
+                      </a>{" "}
+                      (for logistics)
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Within (Bespoke Interiors)</span>  , Ghitorni Delhi, India
+                      <a
+                        href="https://www.bespokeinteriors.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Within (Bespoke Interiors)
+                      </a>{" "}
+                      , Ghitorni Delhi, India
                     </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Legal Partner</p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">East Delhi Law Office</span> (Law Firm) Delhi, India
+                      <a
+                        href="https://share.google/6cQosJXK5JazWlNV3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        East Delhi Law Office
+                      </a>{" "}
+                      (Law Firm) Delhi, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Arunodaya Legal Consultants</span> (Law Firm), Delhi, India
+                      <span className="font-semibold">Arunodaya Legal</span> (Law Firm), Delhi, India
                     </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
                     <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Support</p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Helping Hands</span> (NGO) , New Delhi and in all NE states. India
+                      <a
+                        href="https://helpinghands.ngo/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Helping Hands
+                      </a>{" "}
+                      (NGO) , New Delhi and in all NE states. India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Central Association of Private Security Industry</span> (CAPSI) , India.
+                      <a
+                        href="https://www.capsi.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Central Association of Private Security Industry
+                      </a>{" "}
+                      (CAPSI) , India.
                     </p>
                   </div>
                 </div>
