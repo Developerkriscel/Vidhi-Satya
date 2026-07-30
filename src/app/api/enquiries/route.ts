@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 
 import { fail, ok } from "@/lib/apiResponse";
 import { connectToDatabase } from "@/lib/db";
+import { sendEnquiryNotification } from "@/lib/email";
 import { assertAdmin } from "@/lib/route-admin";
 import { enquirySchema } from "@/lib/validations";
 import Enquiry from "@/models/Enquiry";
@@ -27,6 +28,7 @@ export async function POST(request: NextRequest) {
     const parsed = enquirySchema.safeParse(body);
     if (!parsed.success) return fail("Invalid enquiry payload.", 422, parsed.error.flatten());
     const created = await Enquiry.create(parsed.data);
+    sendEnquiryNotification(parsed.data).catch(() => {});
     return ok(created, "Enquiry submitted.", 201);
   } catch (error) {
     return fail(error instanceof Error ? error.message : "Failed to submit enquiry.", 500);
