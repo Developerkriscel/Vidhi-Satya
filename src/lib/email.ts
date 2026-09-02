@@ -1,7 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 interface EnquiryPayload {
   name: string;
   email: string;
@@ -15,7 +13,10 @@ interface EnquiryPayload {
 
 export async function sendEnquiryNotification(enquiry: EnquiryPayload) {
   const to = process.env.NOTIFICATION_EMAIL;
-  if (!to || !process.env.RESEND_API_KEY) return;
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!to || !apiKey) return;
+
+  const resend = new Resend(apiKey);
 
   const optionalRows = [
     enquiry.department &&
