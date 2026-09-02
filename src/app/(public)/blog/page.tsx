@@ -107,7 +107,8 @@ export default async function BlogPage({ searchParams }: Props) {
     "It's urged to do good, then do it first opportunity you find good.",
     "It's urged to be worth, then do it moment you find worth.",
     "It's urged to be great, then do it wisely as do all great. 👏",
-    "It's urged to be timely, then do it with accuracy, precision, merit but timely. 🙌"
+    "It's urged to be timely, then do it with accuracy, precision, merit but timely. 🙌",
+    "Knowledge leads to wisdom\n\nWisdom fulfills aspirations\n\nAspirations achieved, complete life\n\nWith completed life, it's Solace"
   ];
   const blogCollectionSchema = buildWebPageJsonLd({
     pathname: "/blog",
@@ -259,7 +260,7 @@ export default async function BlogPage({ searchParams }: Props) {
                 {dedicationQuoteLines.map((line) => (
                   <Card key={line} className="border-accent/30 bg-surface-low">
                     <CardContent className="p-4 sm:p-5">
-                      <p className="border-l-4 border-accent/60 pl-3 italic text-sm leading-7 text-muted-foreground sm:text-base">
+                      <p className="whitespace-pre-wrap border-l-4 border-accent/60 pl-3 italic text-sm leading-7 text-muted-foreground sm:text-base">
                         {line}
                       </p>
                     </CardContent>
