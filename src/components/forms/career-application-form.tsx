@@ -130,11 +130,6 @@ export function CareerApplicationForm() {
       >
         Submit Application
       </button>
-      <p className="text-xs leading-6 text-muted-foreground">
-        Submit opens WhatsApp and email with the application details filled in. Please send both messages to complete the
-        application.
-      </p>
-      <p className="text-xs leading-6 text-muted-foreground">Email: rajeshnarang@vidhisatya.com</p>
     </form>
   );
 }
