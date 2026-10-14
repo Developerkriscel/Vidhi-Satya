@@ -216,7 +216,7 @@ export default async function BlogPage({ searchParams }: Props) {
               </CardContent>
             </Card>
           </div>
-          <div className="mt-10 mb-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 mb-10 grid gap-4 lg:grid-cols-2">
             <Card>
               <CardContent className="p-5">
                 <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Insight Desk</p>
