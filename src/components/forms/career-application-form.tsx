@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { type FormEvent, useMemo, useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -51,13 +51,20 @@ export function CareerApplicationForm() {
     setValues((current) => ({ ...current, [field]: value }));
   }
 
+  function submitApplication(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+    window.location.href = emailHref;
+  }
+
   return (
-    <form className="mt-5 space-y-4">
+    <form onSubmit={submitApplication} className="mt-5 space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <Label htmlFor="career-position">Position Applied For</Label>
           <Input
             id="career-position"
+            required
             value={values.position}
             onChange={(event) => updateValue("position", event.target.value)}
             placeholder="Enter position"
@@ -67,6 +74,7 @@ export function CareerApplicationForm() {
           <Label htmlFor="career-name">Full Name</Label>
           <Input
             id="career-name"
+            required
             value={values.name}
             onChange={(event) => updateValue("name", event.target.value)}
             placeholder="Enter full name"
@@ -78,6 +86,7 @@ export function CareerApplicationForm() {
           <Label htmlFor="career-phone">Phone / WhatsApp</Label>
           <Input
             id="career-phone"
+            required
             value={values.phone}
             onChange={(event) => updateValue("phone", event.target.value)}
             placeholder="Enter phone number"
@@ -88,6 +97,7 @@ export function CareerApplicationForm() {
           <Input
             id="career-email"
             type="email"
+            required
             value={values.email}
             onChange={(event) => updateValue("email", event.target.value)}
             placeholder="Enter email"
@@ -98,6 +108,7 @@ export function CareerApplicationForm() {
         <Label htmlFor="career-cv">CV Link / Attachment Note</Label>
         <Input
           id="career-cv"
+          required
           value={values.cvLink}
           onChange={(event) => updateValue("cvLink", event.target.value)}
           placeholder="Paste CV link or mention that CV will be attached"
@@ -113,22 +124,16 @@ export function CareerApplicationForm() {
           placeholder="Add brief experience, availability, or interview request"
         />
       </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-[0.75rem] bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-ambient"
-        >
-          Book Interview on WhatsApp
-        </a>
-        <a
-          href={emailHref}
-          className="inline-flex items-center justify-center rounded-[0.75rem] border border-accent/35 bg-surface px-4 py-3 text-sm font-semibold text-accent transition hover:-translate-y-0.5 hover:shadow-soft"
-        >
-          Send CV by Email
-        </a>
-      </div>
+      <button
+        type="submit"
+        className="inline-flex w-full items-center justify-center rounded-[0.75rem] bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-ambient sm:w-auto"
+      >
+        Submit Application
+      </button>
+      <p className="text-xs leading-6 text-muted-foreground">
+        Submit opens WhatsApp and email with the application details filled in. Please send both messages to complete the
+        application.
+      </p>
       <p className="text-xs leading-6 text-muted-foreground">Email: rajeshnarang@vidhisatya.com</p>
     </form>
   );
