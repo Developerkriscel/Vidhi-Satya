@@ -241,21 +241,16 @@ export default async function BlogPage({ searchParams }: Props) {
                     <p className="text-sm text-muted-foreground">New topic tags will appear here.</p>
                   )}
                 </div>
-                <div className="mt-5 rounded-lg border border-outline-variant/30 bg-surface-low/70 p-4">
-                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">VidhiSatya News</p>
-                  <div className="mt-3 grid gap-2 sm:grid-cols-3">
-                    {vidhiSatyaNewsTopics.map((newsTopic) => (
-                      <div
-                        key={newsTopic}
-                        className="rounded-lg border border-accent/25 bg-surface px-3 py-2 text-sm font-medium text-foreground"
-                      >
-                        {newsTopic}
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </CardContent>
             </Card>
+            {vidhiSatyaNewsTopics.map((newsTopic) => (
+              <Card key={newsTopic}>
+                <CardContent className="p-5">
+                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">VidhiSatya News</p>
+                  <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold">{newsTopic}</p>
+                </CardContent>
+              </Card>
+            ))}
             <Card>
               <CardContent className="p-5">
                 <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">How To Use</p>
