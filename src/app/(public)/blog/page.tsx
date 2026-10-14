@@ -379,7 +379,7 @@ export default async function BlogPage({ searchParams }: Props) {
           </Card>
           <Card className="mb-10">
             <CardContent className="p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Careers in Insight</p>
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Careers in VidhiSatya</p>
               <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Careers</p>
               <div className="mt-6 grid auto-rows-fr gap-5 lg:grid-cols-2">
                 <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
