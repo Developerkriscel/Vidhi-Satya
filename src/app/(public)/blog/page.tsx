@@ -39,6 +39,7 @@ export default async function BlogPage({ searchParams }: Props) {
   const blogs = (await getPublicBlogsData(search, tag)) as BlogItem[];
   const featured = blogs[0];
   const topTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags))).slice(0, 8);
+  const vidhiSatyaNewsTopics = ["For new joinings", "For programs", "For new announcements"];
   const workingFlowSteps = [
     {
       id: 1,
@@ -239,6 +240,19 @@ export default async function BlogPage({ searchParams }: Props) {
                   ) : (
                     <p className="text-sm text-muted-foreground">New topic tags will appear here.</p>
                   )}
+                </div>
+                <div className="mt-5 rounded-lg border border-outline-variant/30 bg-surface-low/70 p-4">
+                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">VidhiSatya News</p>
+                  <div className="mt-3 grid gap-2 sm:grid-cols-3">
+                    {vidhiSatyaNewsTopics.map((newsTopic) => (
+                      <div
+                        key={newsTopic}
+                        className="rounded-lg border border-accent/25 bg-surface px-3 py-2 text-sm font-medium text-foreground"
+                      >
+                        {newsTopic}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>
