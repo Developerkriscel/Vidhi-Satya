@@ -229,9 +229,9 @@ export default async function BlogPage({ searchParams }: Props) {
               </CardContent>
             </Card>
           </div>
-          <div className="mt-10 mb-10 grid gap-4 lg:grid-cols-2">
-            <Card>
-              <CardContent className="p-5">
+          <div className="mt-10 mb-10 grid auto-rows-fr gap-4 lg:grid-cols-2">
+            <Card className="h-full">
+              <CardContent className="h-full p-5">
                 <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Insight Desk</p>
                 <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold">What You Get</p>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -239,8 +239,8 @@ export default async function BlogPage({ searchParams }: Props) {
                 </p>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="p-5">
+            <Card className="h-full">
+              <CardContent className="h-full p-5">
                 <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Coverage</p>
                 <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold">Topics</p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -256,8 +256,8 @@ export default async function BlogPage({ searchParams }: Props) {
                 </div>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="p-5">
+            <Card className="h-full">
+              <CardContent className="h-full p-5">
                 <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Blog</p>
                 <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold">VidhiSatya News</p>
                 <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm leading-7 text-muted-foreground">
@@ -267,8 +267,8 @@ export default async function BlogPage({ searchParams }: Props) {
                 </ol>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="p-5">
+            <Card className="h-full">
+              <CardContent className="h-full p-5">
                 <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">How To Use</p>
                 <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold">Read Fast</p>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -381,8 +381,8 @@ export default async function BlogPage({ searchParams }: Props) {
             <CardContent className="p-6 sm:p-8">
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Careers in Insight</p>
               <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Careers</p>
-              <div className="mt-6 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-                <div className="rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+              <div className="mt-6 grid auto-rows-fr gap-5 lg:grid-cols-2">
+                <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
                   <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Open Positions with VidhiSatya</p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
                     Anyone who wishes to apply gets to book an interview for same. Candidate may select the position in the
@@ -390,7 +390,7 @@ export default async function BlogPage({ searchParams }: Props) {
                   </p>
                   <CareerApplicationForm />
                 </div>
-                <div className="rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+                <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
                   <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Declaration</p>
                   <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
                     {careerDeclarations.map((declaration) => (
