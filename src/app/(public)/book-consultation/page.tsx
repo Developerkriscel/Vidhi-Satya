@@ -18,10 +18,15 @@ export async function generateMetadata() {
 }
 
 export default async function BookConsultationPage() {
-  await connectToDatabase();
-  const services = sortServicesByPriority(
-    normalizeServices((await Service.find({ isPublished: true }).lean()) as unknown as ServiceItem[])
-  );
+  let services: ServiceItem[] = [];
+  try {
+    await connectToDatabase();
+    services = sortServicesByPriority(
+      normalizeServices((await Service.find({ isPublished: true }).lean()) as unknown as ServiceItem[])
+    );
+  } catch (error) {
+    console.error("[book-consultation] failed to load service options", error);
+  }
   const options = services.map((s) => s.title);
   const consultationPageSchema = buildWebPageJsonLd({
     pathname: "/book-consultation",

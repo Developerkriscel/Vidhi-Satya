@@ -63,20 +63,30 @@ function toDate(value: string | Date | undefined) {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = getSiteUrl();
 
-  await connectToDatabase();
-  const [services, blogs, about, heroSlides, settings] = await Promise.all([
-    Service.find({ isPublished: true }).select("slug updatedAt imageUrl category title").lean(),
-    Blog.find({ isPublished: true }).select("slug updatedAt title featuredImage").lean(),
-    About.findOne().select("imageUrl updatedAt").lean(),
-    Hero.find({ isPublished: true }).select("imageUrl updatedAt").sort({ order: 1 }).lean(),
-    SiteSetting.findOne().select("logoUrl updatedAt").lean()
-  ]);
+  let publishedServices: ServiceItem[] = [];
+  let publishedBlogs: BlogItem[] = [];
+  let aboutData: MinimalAbout | null = null;
+  let publishedHeroSlides: MinimalHero[] = [];
+  let siteSettings: SiteSettingItem | null = null;
 
-  const publishedServices = services as unknown as ServiceItem[];
-  const publishedBlogs = blogs as unknown as BlogItem[];
-  const aboutData = about as unknown as MinimalAbout | null;
-  const publishedHeroSlides = heroSlides as unknown as MinimalHero[];
-  const siteSettings = settings as unknown as SiteSettingItem | null;
+  try {
+    await connectToDatabase();
+    const [services, blogs, about, heroSlides, settings] = await Promise.all([
+      Service.find({ isPublished: true }).select("slug updatedAt imageUrl category title").lean(),
+      Blog.find({ isPublished: true }).select("slug updatedAt title featuredImage").lean(),
+      About.findOne().select("imageUrl updatedAt").lean(),
+      Hero.find({ isPublished: true }).select("imageUrl updatedAt").sort({ order: 1 }).lean(),
+      SiteSetting.findOne().select("logoUrl updatedAt").lean()
+    ]);
+
+    publishedServices = services as unknown as ServiceItem[];
+    publishedBlogs = blogs as unknown as BlogItem[];
+    aboutData = about as unknown as MinimalAbout | null;
+    publishedHeroSlides = heroSlides as unknown as MinimalHero[];
+    siteSettings = settings as unknown as SiteSettingItem | null;
+  } catch (error) {
+    console.error("[sitemap] failed to load dynamic sitemap data", error);
+  }
 
   const homeImages = uniqueAbsoluteUrls(siteUrl, [
     ...HERO_FALLBACK_IMAGES,

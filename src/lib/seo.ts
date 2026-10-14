@@ -49,13 +49,23 @@ function titleToString(title: Metadata["title"], fallback: string) {
 }
 
 export async function getSeoByPage(page: string) {
-  await connectToDatabase();
-  return (await SEO.findOne({ page }).lean()) as unknown as SeoItem | null;
+  try {
+    await connectToDatabase();
+    return (await SEO.findOne({ page }).lean()) as unknown as SeoItem | null;
+  } catch (error) {
+    console.error(`[seo] failed to load SEO for ${page}`, error);
+    return null;
+  }
 }
 
 export async function getSiteSettings() {
-  await connectToDatabase();
-  return (await SiteSetting.findOne().lean()) as unknown as SiteSettingItem | null;
+  try {
+    await connectToDatabase();
+    return (await SiteSetting.findOne().lean()) as unknown as SiteSettingItem | null;
+  } catch (error) {
+    console.error("[seo] failed to load site settings", error);
+    return null;
+  }
 }
 
 export async function buildPageMetadata(page: string, overrides?: BuildPageMetadataOptions): Promise<Metadata> {

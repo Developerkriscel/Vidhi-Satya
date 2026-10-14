@@ -55,5 +55,18 @@ const getCachedPublishedHomeData = unstable_cache(
 );
 
 export async function getPublishedHomeData() {
-  return getCachedPublishedHomeData();
+  try {
+    return await getCachedPublishedHomeData();
+  } catch (error) {
+    console.error("[server-data] failed to load published home data", error);
+    return {
+      heroSlides: [],
+      about: null,
+      services: [],
+      blogs: [],
+      faqs: [],
+      contactInfo: null,
+      settings: null
+    };
+  }
 }

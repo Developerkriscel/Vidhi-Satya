@@ -55,7 +55,12 @@ const getCachedPublicLayoutData = unstable_cache(
 );
 
 export async function getPublicLayoutData() {
-  return getCachedPublicLayoutData();
+  try {
+    return await getCachedPublicLayoutData();
+  } catch (error) {
+    console.error("[public-cache] failed to load layout data", error);
+    return { contact: null, settings: null, serviceLinks: [] };
+  }
 }
 
 const getCachedAboutData = unstable_cache(
@@ -69,7 +74,12 @@ const getCachedAboutData = unstable_cache(
 );
 
 export async function getPublicAboutData() {
-  return getCachedAboutData();
+  try {
+    return await getCachedAboutData();
+  } catch (error) {
+    console.error("[public-cache] failed to load about data", error);
+    return null;
+  }
 }
 
 const getCachedServicesData = unstable_cache(
@@ -83,7 +93,12 @@ const getCachedServicesData = unstable_cache(
 );
 
 export async function getPublicServicesData() {
-  return getCachedServicesData();
+  try {
+    return await getCachedServicesData();
+  } catch (error) {
+    console.error("[public-cache] failed to load services data", error);
+    return [];
+  }
 }
 
 const getCachedFaqData = unstable_cache(
@@ -96,7 +111,12 @@ const getCachedFaqData = unstable_cache(
 );
 
 export async function getPublicFaqData() {
-  return getCachedFaqData();
+  try {
+    return await getCachedFaqData();
+  } catch (error) {
+    console.error("[public-cache] failed to load FAQ data", error);
+    return [];
+  }
 }
 
 const getCachedContactData = unstable_cache(
@@ -110,7 +130,12 @@ const getCachedContactData = unstable_cache(
 );
 
 export async function getPublicContactData() {
-  return getCachedContactData();
+  try {
+    return await getCachedContactData();
+  } catch (error) {
+    console.error("[public-cache] failed to load contact data", error);
+    return null;
+  }
 }
 
 const getCachedBlogsData = unstable_cache(
@@ -127,5 +152,10 @@ const getCachedBlogsData = unstable_cache(
 );
 
 export async function getPublicBlogsData(search?: string, tag?: string) {
-  return getCachedBlogsData(search, tag);
+  try {
+    return await getCachedBlogsData(search, tag);
+  } catch (error) {
+    console.error("[public-cache] failed to load blogs data", error);
+    return [];
+  }
 }
