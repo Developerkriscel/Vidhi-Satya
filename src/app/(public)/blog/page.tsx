@@ -40,6 +40,18 @@ export default async function BlogPage({ searchParams }: Props) {
   const featured = blogs[0];
   const topTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags))).slice(0, 8);
   const vidhiSatyaNewsTopics = ["For new joinings", "For programs", "For new announcements"];
+  const careerDeclarations = [
+    "All applicants are responsible for correctness and completeness of their inputs. Any wrong or incorrect inputs wil be viewed seriously. Background Verification at cost of candidates only.",
+    "All or any inputs may be used by VS for selection.",
+    "Mere applying does not guarantee selection, as interview and need of VS matters.",
+    "If more CV come then selection may take time.",
+    "No pressure or unfair means allowed for any selection.",
+    "All Positions are on pricipal to principal basis.",
+    "qualifying training is must for all every year, and only those who pass it may be continued.",
+    "Results of interview shall be confidential and shared at discretion of VS.",
+    "Any candidature may be rejected, at any stage.",
+    "All selected persons shall follow non-disclosure norms"
+  ];
   const workingFlowSteps = [
     {
       id: 1,
@@ -360,6 +372,48 @@ export default async function BlogPage({ searchParams }: Props) {
                       </div>
                     );
                   })}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="mb-10">
+            <CardContent className="p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Careers in Insight</p>
+              <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Careers</p>
+              <div className="mt-6 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+                  <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Open Positions with VS</p>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                    Anyone who wishes to apply gets to book an interview for same. Candidate may select the position in the
+                    application message and send CV to VS on WhatsApp or email.
+                  </p>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    <a
+                      href="https://wa.me/919891147979?text=I%20wish%20to%20apply%20for%20a%20position%20with%20VS.%20Position%3A%20%5Bplease%20write%20position%5D.%20I%20will%20share%20my%20CV."
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-[0.75rem] bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-ambient"
+                    >
+                      Book Interview on WhatsApp
+                    </a>
+                    <a
+                      href="mailto:rajeshnarang@vidhisatya.com?subject=VS%20Career%20Application%20-%20Position&body=I%20wish%20to%20apply%20for%20a%20position%20with%20VS.%0A%0APosition%3A%20%0AName%3A%20%0APhone%3A%20%0A%0AI%20will%20attach%20my%20CV."
+                      className="inline-flex items-center justify-center rounded-[0.75rem] border border-accent/35 bg-surface px-4 py-3 text-sm font-semibold text-accent transition hover:-translate-y-0.5 hover:shadow-soft"
+                    >
+                      Send CV by Email
+                    </a>
+                  </div>
+                  <p className="mt-4 text-xs leading-6 text-muted-foreground">
+                    Email: rajeshnarang@vidhisatya.com
+                  </p>
+                </div>
+                <div className="rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+                  <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Declaration</p>
+                  <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
+                    {careerDeclarations.map((declaration) => (
+                      <li key={declaration}>{declaration}</li>
+                    ))}
+                  </ol>
                 </div>
               </div>
             </CardContent>
