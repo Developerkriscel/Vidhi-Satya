@@ -181,7 +181,7 @@ export default async function AboutPage() {
                       (Law Firm) Delhi, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Arunodaya Legal</span> (Law Firm), Delhi, India
+                      <span className="font-semibold">Arunoday Legal Consultants</span> (Law Firm), Delhi, India
                     </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
