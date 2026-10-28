@@ -26,7 +26,10 @@ function isWeekendDate(value?: string) {
 }
 
 const consultationSchema = enquirySchema.extend({
-  preferredDate: z.string().optional()
+  preferredDate: z.string().optional(),
+  consentAccepted: z.boolean().refine((value) => value, {
+    message: "Please accept the terms and conditions before submitting."
+  })
 }).superRefine((values, ctx) => {
   const needsDepartmentAndDesignation = requiresDepartmentAndDesignation(values.serviceInterested);
   if (needsDepartmentAndDesignation) {
@@ -62,6 +65,8 @@ type ConsultationFormProps = {
   serviceOptions: string[];
 };
 
+const subjectOptions = ["Consultation", "Fix Apportionment", "Association", "Service Enquiries", "Grievance"];
+
 export function ConsultationForm({ serviceOptions }: ConsultationFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
@@ -76,12 +81,15 @@ export function ConsultationForm({ serviceOptions }: ConsultationFormProps) {
   } = useForm<ConsultationValues>({
     resolver: zodResolver(consultationSchema),
     defaultValues: {
-      serviceInterested: serviceOptions[0] || "General Advisory",
+      serviceInterested: "",
       department: "",
-      designation: ""
+      designation: "",
+      consentAccepted: false
     }
   });
   const selectedService = watch("serviceInterested");
+  const selectedSubject = watch("subject");
+  const consentAccepted = watch("consentAccepted");
   const preferredDateField = register("preferredDate");
   const showDepartmentAndDesignation = requiresDepartmentAndDesignation(selectedService);
 
@@ -163,7 +171,7 @@ export function ConsultationForm({ serviceOptions }: ConsultationFormProps) {
           }}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select a service" />
+            <SelectValue placeholder="Select Services" />
           </SelectTrigger>
           <SelectContent>
             {serviceOptions.map((service) => (
@@ -190,14 +198,40 @@ export function ConsultationForm({ serviceOptions }: ConsultationFormProps) {
       ) : null}
       <div>
         <Label>Subject</Label>
-        <Input {...register("subject")} placeholder="Consultation request" />
+        <Select
+          value={selectedSubject || ""}
+          onValueChange={(value) => setValue("subject", value, { shouldValidate: true, shouldDirty: true })}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select Subject" />
+          </SelectTrigger>
+          <SelectContent>
+            {subjectOptions.map((subject) => (
+              <SelectItem key={subject} value={subject}>
+                {subject}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        {errors.subject ? <p className="mt-1 text-xs text-red-600">{errors.subject.message}</p> : null}
       </div>
       <div>
         <Label>Message</Label>
         <Textarea rows={5} {...register("message")} />
       </div>
+      <div>
+        <label className="flex cursor-pointer items-start gap-3 text-sm text-foreground">
+          <input
+            type="checkbox"
+            {...register("consentAccepted")}
+            className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-primary"
+          />
+          <span>I am committed to seeks consultation and have read the terms and conditions and agree to the same.</span>
+        </label>
+        {errors.consentAccepted ? <p className="mt-1 text-xs text-red-600">{errors.consentAccepted.message}</p> : null}
+      </div>
       <div className="space-y-2">
-        <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
+        <Button type="submit" disabled={isSubmitting || !consentAccepted} className="w-full sm:w-auto">
           {isSubmitting ? "Submitting..." : "Request Consultation"}
         </Button>
         <p className="text-xs text-muted-foreground">This will be deemed a client-attorney conversion.</p>

@@ -55,7 +55,7 @@ export default async function ContactPage() {
           </div>
           <Card>
               <CardContent className="p-5 sm:p-6">
-                <h2 className="font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Consultation Request Form</h2>
+                <h2 className="font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Request Form</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Work timing: 9:30 AM to 6:00 PM IST. Communications received after work hours are recorded and attended on the next business
                   day.
@@ -70,10 +70,10 @@ export default async function ContactPage() {
               <CardContent className="p-5 sm:p-6">
                 <h3 className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold sm:text-3xl">Contact Information</h3>
                 <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-                  <p>{companyName}</p>
-                  <p>{info?.address}</p>
-                  <p>{info?.phone}</p>
-                  <p>{info?.email}</p>
+                  <p>Website: {companyName}</p>
+                  <p>Address: {info?.address}</p>
+                  <p>WhatsApp: {info?.phone}</p>
+                  <p>Primary Email: {info?.email}</p>
                   <p>Secondary Email: avikanarang@vidhisatya.com</p>
                 </div>
               </CardContent>
