@@ -39,7 +39,9 @@ export default async function BlogPage({ searchParams }: Props) {
   const { search, tag } = resolvedSearchParams;
   const blogs = (await getPublicBlogsData(search, tag)) as BlogItem[];
   const featured = blogs[0];
-  const topTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags))).slice(0, 8);
+  const topTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags)))
+    .filter((topic) => topic.trim().toLowerCase() !== "government")
+    .slice(0, 8);
   const vidhiSatyaNewsTopics = ["For new joinings", "For programs", "For new announcements"];
   const careerDeclarations = [
     "All applicants are responsible for correctness and completeness of their inputs. Any wrong or incorrect inputs wil be viewed seriously. Background Verification at cost of candidates only.",
@@ -118,10 +120,7 @@ export default async function BlogPage({ searchParams }: Props) {
     CheckCircle2
   ];
   const dedicationQuoteLines = [
-    "It's urged to do good, then do it first opportunity you find good.",
-    "It's urged to be worth, then do it moment you find worth.",
-    "It's urged to be great, then do it wisely as do all great. 👏",
-    "It's urged to be timely, then do it with accuracy, precision, merit but timely. 🙌",
+    "It's urged to do good, then do it first opportunity you find good.\n\nIt's urged to be worth, then do it moment you find worth.\n\nIt's urged to be great, then do it wisely as do all great. 👏\n\nIt's urged to be timely, then do it with accuracy, precision, merit but timely. 🙌",
     "Knowledge leads to wisdom\n\nWisdom fulfills aspirations\n\nAspirations achieved, complete life\n\nWith completed life, it's Solace"
   ];
   const blogCollectionSchema = buildWebPageJsonLd({

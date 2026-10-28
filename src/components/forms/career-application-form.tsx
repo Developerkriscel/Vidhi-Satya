@@ -115,7 +115,7 @@ export function CareerApplicationForm() {
         />
       </div>
       <div>
-        <Label htmlFor="career-message">Message</Label>
+        <Label htmlFor="career-message">Message/Brief About Yourself</Label>
         <Textarea
           id="career-message"
           rows={4}

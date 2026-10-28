@@ -68,7 +68,7 @@ export default async function AboutPage() {
         <div className="container">
           <SectionTitle
             eyebrow="Form Governance"
-            title="Declaration, Category Intake, and Partner Ecosystem"
+            title="Partner Ecosystem"
             description="Added from your shared notes to keep intake standards and organizational references clear."
           />
           <div className="mt-8 grid gap-6 xl:grid-cols-2">
