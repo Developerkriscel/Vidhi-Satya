@@ -117,7 +117,7 @@ export default async function AboutPage() {
                       >
                         Kriscel Tech Pvt. Ltd.
                       </a>{" "}
-                      (Online Services)
+                      CIN: U63121DL2026PTC462568 (Online Services)
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a
@@ -128,7 +128,7 @@ export default async function AboutPage() {
                       >
                         Link HR Solution Pvt. Ltd.
                       </a>{" "}
-                      (Rendering HR solution india wide) , Delhi and Odisha, India
+                      CIN: U93092DL2015PTC283404 (Rendering HR solution india wide) , Delhi and Odisha, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <span className="font-semibold">Pragati Training Services Pvt. Ltd.</span> (business networking and training) , Delhi, India
@@ -142,7 +142,7 @@ export default async function AboutPage() {
                       >
                         Krishna Overseas Inc.
                       </a>{" "}
-                      (a two star export house) , Dwarka, Delhi and Mumbai. India
+                      CIN: U99999DL1978PTC009196 (a two star export house) , Dwarka, Delhi and Mumbai. India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a
@@ -153,18 +153,18 @@ export default async function AboutPage() {
                       >
                         Seabees Global Logistics Pvt. Ltd.
                       </a>{" "}
-                      (for logistics)
+                      CIN: U52240DL2024PTC440075 (for logistics)
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a
-                        href="https://www.bespokeinteriors.in/"
+                        href="https://within.net.in/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-semibold text-primary underline-offset-4 hover:underline"
                       >
-                        Within (Bespoke Interiors)
+                        Within
                       </a>{" "}
-                      , Ghitorni Delhi, India
+                      (Bespoke Interiors) , Ghitorni Delhi, India
                     </p>
                   </div>
                   <div className="rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
@@ -193,9 +193,9 @@ export default async function AboutPage() {
                         rel="noopener noreferrer"
                         className="font-semibold text-primary underline-offset-4 hover:underline"
                       >
-                        Helping Hands
+                        Helping Hands Foundation
                       </a>{" "}
-                      (NGO) , New Delhi and in all NE states. India
+                      CIN: U88900DL2026NPL461705 (NGO) , New Delhi and in all NE states. India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a
