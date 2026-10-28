@@ -34,6 +34,7 @@ export function Footer({
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-[#CFFFDC]/84">
             <span className="rounded-full bg-[#2E6F40] px-3 py-1">Strategy</span>
             <span className="rounded-full bg-[#2E6F40] px-3 py-1">Compliance</span>
+            <span className="rounded-full bg-[#2E6F40] px-3 py-1">Business Psychology</span>
             <span className="rounded-full bg-[#2E6F40] px-3 py-1">Execution</span>
           </div>
         </div>
@@ -82,10 +83,10 @@ export function Footer({
             Book a consultation and receive a focused mandate tailored to your case context.
           </p>
           <Link
-            href="/book-consultation"
+            href="/contact"
             className="india-tricolor-button mt-5 inline-flex rounded-[0.75rem] px-4 py-2 text-sm font-semibold transition"
           >
-            Start Consultation
+            Contact Us
           </Link>
           <p className="mt-3 text-xs text-[#CFFFDC]/70">Average response window: 1 business day / 24 business hours</p>
         </div>
