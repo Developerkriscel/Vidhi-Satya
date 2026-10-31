@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   BarChart3,
   CheckCircle2,
@@ -380,7 +381,7 @@ export default async function BlogPage({ searchParams }: Props) {
             <CardContent className="p-6 sm:p-8">
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Careers in VidhiSatya</p>
               <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Careers</p>
-              <div className="mt-6 grid auto-rows-fr gap-5 lg:grid-cols-2">
+              <div className="mt-6 grid auto-rows-fr gap-5 lg:grid-cols-2 xl:grid-cols-3">
                 <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
                   <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Open Positions with VidhiSatya</p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
@@ -396,6 +397,35 @@ export default async function BlogPage({ searchParams }: Props) {
                       <li key={declaration}>{declaration}</li>
                     ))}
                   </ol>
+                </div>
+                <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+                  <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Google Form Scope</p>
+                  <p className="mt-3 text-sm text-muted-foreground">Categories: Individual, Corporate, Government.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Basic information capture will be collected as required for mandate evaluation and execution planning.
+                  </p>
+                  <div className="mt-4 rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
+                    <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Declaration</p>
+                    <ul className="mt-2 list-decimal space-y-2 pl-5 text-sm text-foreground/90">
+                      <li>I am competent and am voluntarily seeking consultation from vidhisatya.com.</li>
+                      <li>I am responsible for providing updated and complete information to vidhisatya.com.</li>
+                      <li>I agree that the information provided by me shall remain with vidhisatya.com for use and record.</li>
+                      <li>I/my organization agree to pay all fees and expenses of vidhisatya.com and their recommended partners and assignees.</li>
+                      <li>I undertake to keep vidhisatya.com indemnified against any loss that may occur due to any non-adherence to their advice.</li>
+                    </ul>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">Purpose: Use submitted information for advisory workflow and case setup.</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link href="/contact">
+                      <Badge variant="outline">One-Time Consultation</Badge>
+                    </Link>
+                    <Link href="/contact">
+                      <Badge variant="outline">Fix Appointment</Badge>
+                    </Link>
+                    <Link href="/contact">
+                      <Badge variant="outline">Associated with VidhiSatya</Badge>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </CardContent>

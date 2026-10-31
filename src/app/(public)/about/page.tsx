@@ -1,12 +1,9 @@
-import Link from "next/link";
-
 import { buildPageMetadata } from "@/lib/seo";
 import { getPublicAboutData } from "@/lib/public-cache";
 import { CTASection } from "@/components/common/cta-section";
 import { SafeImage } from "@/components/common/safe-image";
 import { StructuredData } from "@/components/common/structured-data";
 import { SectionTitle } from "@/components/common/section-title";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { buildWebPageJsonLd } from "@/lib/structured-data";
 import { resolveImageUrl } from "@/lib/image-url";
@@ -73,39 +70,7 @@ export default async function AboutPage() {
             title="Partner Ecosystem"
             description="Added from your shared notes to keep intake standards and organizational references clear."
           />
-          <div className="mt-8 grid gap-6 xl:grid-cols-2">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-[family-name:var(--font-newsreader)] text-3xl font-semibold">Google Form Scope</h3>
-                <p className="mt-3 text-sm text-muted-foreground">Categories: Individual, Corporate, Government.</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Basic information capture will be collected as required for mandate evaluation and execution planning.
-                </p>
-                <div className="mt-4 rounded-[0.75rem] bg-surface p-4 ring-1 ring-outline-variant/15">
-                  <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Declaration</p>
-                  <ul className="mt-2 list-decimal space-y-2 pl-5 text-sm text-foreground/90">
-                    <li>I am competent and am voluntarily seeking consultation from vidhisatya.com.</li>
-                    <li>I am responsible for providing updated and complete information to vidhisatya.com.</li>
-                    <li>I agree that the information provided by me shall remain with vidhisatya.com for use and record.</li>
-                    <li>I/my organization agree to pay all fees and expenses of vidhisatya.com and their recommended partners and assignees.</li>
-                    <li>I undertake to keep vidhisatya.com indemnified against any loss that may occur due to any non-adherence to their advice.</li>
-                  </ul>
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground">Purpose: Use submitted information for advisory workflow and case setup.</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <Link href="/contact">
-                    <Badge variant="outline">One-Time Consultation</Badge>
-                  </Link>
-                  <Link href="/contact">
-                    <Badge variant="outline">Fix Appointment</Badge>
-                  </Link>
-                  <Link href="/contact">
-                    <Badge variant="outline">Associated with VidhiSatya</Badge>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
+          <div className="mt-8">
             <Card>
               <CardContent className="p-6">
                 <h3 className="font-[family-name:var(--font-newsreader)] text-3xl font-semibold">Ecosystem References</h3>
