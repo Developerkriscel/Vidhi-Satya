@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { buildPageMetadata } from "@/lib/seo";
 import { getPublicAboutData } from "@/lib/public-cache";
 import { CTASection } from "@/components/common/cta-section";
@@ -91,9 +93,15 @@ export default async function AboutPage() {
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">Purpose: Use submitted information for advisory workflow and case setup.</p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Badge variant="outline">One-Time Consultation</Badge>
-                  <Badge variant="outline">Fix Appointment</Badge>
-                  <Badge variant="outline">UPI / vidhisatya.com</Badge>
+                  <Link href="/contact">
+                    <Badge variant="outline">One-Time Consultation</Badge>
+                  </Link>
+                  <Link href="/contact">
+                    <Badge variant="outline">Fix Appointment</Badge>
+                  </Link>
+                  <Link href="/contact">
+                    <Badge variant="outline">Associated with VidhiSatya</Badge>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

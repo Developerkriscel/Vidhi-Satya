@@ -39,7 +39,7 @@ export default async function BlogPage({ searchParams }: Props) {
   const { search, tag } = resolvedSearchParams;
   const blogs = (await getPublicBlogsData(search, tag)) as BlogItem[];
   const featured = blogs[0];
-  const topTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags)))
+  const topTags = Array.from(new Set([...blogs.flatMap((blog) => blog.tags), "Nature of Establishment"]))
     .filter((topic) => topic.trim().toLowerCase() !== "government")
     .slice(0, 8);
   const vidhiSatyaNewsTopics = ["For new joinings", "For programs", "For new announcements"];

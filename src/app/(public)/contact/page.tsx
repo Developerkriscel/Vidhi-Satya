@@ -32,7 +32,7 @@ export default async function ContactPage() {
     pathname: "/contact",
     type: "ContactPage",
     title: "Contact Us",
-    description: "Reach us for consultation, association, and service enquiries.",
+    description: "Reach us for consultation, appointment, association, and service enquiries.",
     imageUrl: layoutData.settings?.logoUrl || "/brand/vidhi-satya-logo.png"
   });
   const serviceOptionsSchema = buildItemListJsonLd({
@@ -49,7 +49,7 @@ export default async function ContactPage() {
           <div className="md:col-span-2">
             <SectionTitle
               title="Contact Us"
-              description="Reach us for consultation, association, and service enquiries across individual, corporate, and government categories."
+              description="Reach us for consultation, appointment, association, and service enquiries across individual, corporate, and government categories."
               className="max-w-3xl"
             />
           </div>
