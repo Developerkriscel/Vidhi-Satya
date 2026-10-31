@@ -381,22 +381,24 @@ export default async function BlogPage({ searchParams }: Props) {
             <CardContent className="p-6 sm:p-8">
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">Careers in VidhiSatya</p>
               <p className="mt-2 font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Careers</p>
-              <div className="mt-6 grid auto-rows-fr gap-5 lg:grid-cols-2 xl:grid-cols-3">
-                <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
-                  <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Open Positions with VidhiSatya</p>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    Anyone who wishes to apply gets to book an interview for same. Candidate may select the position in the
-                    application form and send CV to VidhiSatya on WhatsApp or email.
-                  </p>
-                  <CareerApplicationForm />
-                </div>
-                <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
-                  <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Declaration</p>
-                  <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
-                    {careerDeclarations.map((declaration) => (
-                      <li key={declaration}>{declaration}</li>
-                    ))}
-                  </ol>
+              <div className="mt-6 space-y-5">
+                <div className="grid auto-rows-fr gap-5 lg:grid-cols-2">
+                  <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+                    <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Open Positions with VidhiSatya</p>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                      Anyone who wishes to apply gets to book an interview for same. Candidate may select the position in the
+                      application form and send CV to VidhiSatya on WhatsApp or email.
+                    </p>
+                    <CareerApplicationForm />
+                  </div>
+                  <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
+                    <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Declaration</p>
+                    <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
+                      {careerDeclarations.map((declaration) => (
+                        <li key={declaration}>{declaration}</li>
+                      ))}
+                    </ol>
+                  </div>
                 </div>
                 <div className="h-full rounded-[0.75rem] border border-outline-variant/25 bg-surface-low p-5">
                   <p className="font-[family-name:var(--font-newsreader)] text-2xl font-semibold">Google Form Scope</p>
