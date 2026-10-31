@@ -68,7 +68,6 @@ export default async function AboutPage() {
           <SectionTitle
             eyebrow="Form Governance"
             title="Partner Ecosystem"
-            description="Added from your shared notes to keep intake standards and organizational references clear."
           />
           <div className="mt-8">
             <Card>
@@ -90,7 +89,7 @@ export default async function AboutPage() {
                       >
                         Kriscel Tech Pvt. Ltd.
                       </a>{" "}
-                      CIN: U63121DL2026PTC462568 (Online Services)
+                      IEC Code: 0505073544 (Online Services)
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a
@@ -104,7 +103,7 @@ export default async function AboutPage() {
                       CIN: U93092DL2015PTC283404 (Rendering HR solution india wide) , Delhi and Odisha, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
-                      <span className="font-semibold">Pragati Training Services Pvt. Ltd.</span> (business networking and training) , Delhi, India
+                      <span className="font-semibold">Pragati Training Services Pvt. Ltd.</span> CIN: U74140DL2016PTC291414 (business networking and training) , Delhi, India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a

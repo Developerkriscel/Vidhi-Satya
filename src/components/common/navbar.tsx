@@ -117,7 +117,7 @@ export function Navbar({ siteName = "Vidhi Satya", serviceLinks = [] }: NavbarPr
 
         <div className="hidden md:block">
           <Button asChild size="sm" variant="default" className="india-tricolor-button">
-            <Link href="/book-consultation">Book Consultation</Link>
+            <Link href="/book-consultation">Book Service</Link>
           </Button>
         </div>
 
@@ -206,7 +206,7 @@ export function Navbar({ siteName = "Vidhi Satya", serviceLinks = [] }: NavbarPr
             })}
 
             <Button asChild className="india-tricolor-button mt-2 w-full" variant="default">
-              <Link href="/book-consultation">Book Consultation</Link>
+              <Link href="/book-consultation">Book Service</Link>
             </Button>
           </div>
         </div>

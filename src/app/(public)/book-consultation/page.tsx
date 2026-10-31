@@ -31,7 +31,7 @@ export default async function BookConsultationPage() {
   const consultationPageSchema = buildWebPageJsonLd({
     pathname: "/book-consultation",
     type: "WebPage",
-    title: "Book Consultation",
+    title: "Book Service",
     description: "Schedule a strategic consultation with the appropriate advisory lead.",
     imageUrl: "/brand/vidhi-satya-logo.png"
   });
@@ -45,14 +45,14 @@ export default async function BookConsultationPage() {
     <>
       <StructuredData data={[consultationPageSchema, consultationOptionsSchema]} />
       <PageBanner
-        title="Book Consultation"
+        title="Book Service"
         description="Share your context and we will schedule a strategic consultation with the appropriate advisory lead."
       />
       <section className="section-padding">
         <div className="container max-w-3xl">
           <Card>
             <CardContent className="p-5 sm:p-8">
-              <h2 className="font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Consultation Request Form</h2>
+              <h2 className="font-[family-name:var(--font-newsreader)] text-3xl font-semibold sm:text-4xl">Service Request Form</h2>
               <p className="mt-2 text-sm text-muted-foreground">
                 Your information is kept confidential. We focus on practical recommendations with clear implementation paths.
               </p>

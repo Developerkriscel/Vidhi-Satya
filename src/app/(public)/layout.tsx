@@ -29,7 +29,7 @@ export default async function PublicLayout({ children }: { children: ReactNode }
           address={contact?.address}
           phone={contact?.phone}
         />
-        <StickyCta text={settings?.ctaText || "Book Consultation"} />
+        <StickyCta text={settings?.ctaText || "Book Service"} />
         <WhatsappFloat phone={contact?.whatsapp || contact?.phone} />
       </div>
     </WebsiteIntroGate>

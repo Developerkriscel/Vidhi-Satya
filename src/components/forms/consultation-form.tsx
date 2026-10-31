@@ -226,13 +226,13 @@ export function ConsultationForm({ serviceOptions }: ConsultationFormProps) {
             {...register("consentAccepted")}
             className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-primary"
           />
-          <span>I am committed to seeks consultation and have read the terms and conditions and agree to the same.</span>
+          <span>I am competent to seek service, and have read the terms and conditions, and agree to the same.</span>
         </label>
         {errors.consentAccepted ? <p className="mt-1 text-xs text-red-600">{errors.consentAccepted.message}</p> : null}
       </div>
       <div className="space-y-2">
         <Button type="submit" disabled={isSubmitting || !consentAccepted} className="w-full sm:w-auto">
-          {isSubmitting ? "Submitting..." : "Request Consultation"}
+          {isSubmitting ? "Submitting..." : "Request Service"}
         </Button>
         <p className="text-xs text-muted-foreground">This will be deemed a client-attorney conversion.</p>
       </div>

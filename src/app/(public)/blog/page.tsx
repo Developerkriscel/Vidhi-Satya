@@ -419,13 +419,19 @@ export default async function BlogPage({ searchParams }: Props) {
                   <p className="mt-3 text-sm text-muted-foreground">Purpose: Use submitted information for advisory workflow and case setup.</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Link href="/contact">
-                      <Badge variant="outline">One-Time Consultation</Badge>
+                      <Badge variant="outline">Consultation</Badge>
                     </Link>
                     <Link href="/contact">
-                      <Badge variant="outline">Fix Appointment</Badge>
+                      <Badge variant="outline">Fix Apportionment</Badge>
                     </Link>
                     <Link href="/contact">
-                      <Badge variant="outline">Associated with VidhiSatya</Badge>
+                      <Badge variant="outline">Association</Badge>
+                    </Link>
+                    <Link href="/contact">
+                      <Badge variant="outline">Service Enquiries</Badge>
+                    </Link>
+                    <Link href="/contact">
+                      <Badge variant="outline">Grievance</Badge>
                     </Link>
                   </div>
                 </div>
