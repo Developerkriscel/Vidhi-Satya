@@ -89,7 +89,7 @@ export default async function AboutPage() {
                       >
                         Kriscel Tech Pvt. Ltd.
                       </a>{" "}
-                      IEC Code: 0505073544 (Online Services)
+                      CIN: U63121DL2026PTC462568 (Online Services)
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a
@@ -114,7 +114,7 @@ export default async function AboutPage() {
                       >
                         Krishna Overseas Inc.
                       </a>{" "}
-                      CIN: U99999DL1978PTC009196 (a two star export house) , Dwarka, Delhi and Mumbai. India
+                      IEC Code: 0505073544 (a two star export house) , Dwarka, Delhi and Mumbai. India
                     </p>
                     <p className="mt-1 text-sm text-foreground/90">
                       <a

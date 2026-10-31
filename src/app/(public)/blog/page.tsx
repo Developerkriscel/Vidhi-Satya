@@ -422,10 +422,10 @@ export default async function BlogPage({ searchParams }: Props) {
                       <Badge variant="outline">Consultation</Badge>
                     </Link>
                     <Link href="/contact">
-                      <Badge variant="outline">Fix Apportionment</Badge>
+                      <Badge variant="outline">Apportionment</Badge>
                     </Link>
                     <Link href="/contact">
-                      <Badge variant="outline">Association</Badge>
+                      <Badge variant="outline">Associate with VidhiSatya</Badge>
                     </Link>
                     <Link href="/contact">
                       <Badge variant="outline">Service Enquiries</Badge>
